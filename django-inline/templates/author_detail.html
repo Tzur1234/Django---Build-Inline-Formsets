@@ -6,14 +6,19 @@
 <h3>Author Books detail</h3>
 <div class="d-flex-inline "><span class="pe-2">Author name: {{author.name|title}}</span></div>
 <hr>
+
+
+
 {{author.books}}
 {% for book in author.books.all %}
     <div class="small">Book ID: {{book.id}}</div>
     <div>Title: {{book.title}}</div>
 {% endfor %}
 <hr>
+
+
     <p>
-        <a href="" role="button" class="btn btn-primary w-100 mb-2">Edit Author Details</a>
+        <a href="{% url 'books:author_book_edit' pk=author.id %}" role="button" class="btn btn-primary w-100 mb-2">Edit Author Details</a>
         <a href="{% url 'books:authors' %}" role="button" class="btn btn-primary w-100 mb-2">All Collections</a>
     </p>
 
