@@ -8,5 +8,5 @@
 {% block content %}
     <h3>BookStore Collections</h3>
     <a  href="{% url 'books:authors' %}" role="button" class="btn btn-primary w-100 mb-2">All Authors</a>
-    <a  href="" role="button" class="btn btn-primary w-100">Add an Author</a>
+    <a  href="{% url 'books:add_author' %}" role="button" class="btn btn-primary w-100">Add an Author</a>
 {% endblock %}
