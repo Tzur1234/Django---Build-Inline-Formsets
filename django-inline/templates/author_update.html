@@ -1,8 +1,8 @@
 {% extends 'base.html' %} {% block title %} Authors {% endblock %} 
 {% block content %}
-<h1>Create Author</h1>
+<h1>Edit Author</h1>
 <hr>
-<form method="post">
+{% comment %} <form method="post">
     {% csrf_token %}
     {{form}}
     <br>
@@ -10,5 +10,5 @@
         <input type="submit" value="Edit Author" class="btn btn-primary w-100 mb-2">
         <a class="btn btn-secondary w-100" role="button" href="{% url 'books:home' %}">Cancel</a>
     </div>
-</form>
+</form> {% endcomment %}
 {% endblock %}
