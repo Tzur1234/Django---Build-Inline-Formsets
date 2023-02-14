@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.views.generic import TemplateView, ListView, CreateView, DetailView
+from django.views.generic import TemplateView, ListView, CreateView, DetailView, UpdateView
 from django.contrib import messages
 from .models import Author
 
@@ -33,6 +33,14 @@ class AuthorCreateView(CreateView):
 class AuthorDetailView(DetailView):
     model = Author
     template_name = 'author_detail.html'
+
+
+class AuthorBooksEditView(UpdateView):
+    model = Author
+    fields = ['name']
+    template_name = 'author_update.html'
+
+
 
 
 
