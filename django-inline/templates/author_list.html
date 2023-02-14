@@ -7,7 +7,7 @@
 <ul class="list-group">
   {% for author in author_list %}
   <li class="list-group-item">
-    <a class="text-reset" href="#">{{author.name}}</a>
+    <a class="text-reset" href="{% url 'books:author_detail' pk=author.id %}">{{author.name}}</a>
   </li>
   {% endfor %}
 </ul>

@@ -7,7 +7,7 @@ from django.views.generic.detail import SingleObjectMixin
 from django.contrib import messages
 from .models import Author
 from .forms import AuthorBooksFormset
-
+from django.http import HttpResponseRedirect
 
 class HomeView(TemplateView):
     template_name = 'home.html'
@@ -63,11 +63,11 @@ class AuthorBooksEditView(SingleObjectMixin, FormView):
         # Excplicitly save the form in the data
         form.save()
         # Add new messsage
-        messages.success(self.request, 'The auther has been Update successfuly !')
-        return HttpReponseRedirect(self.get_success_url())
-
+        messages.success(self.request, 'New Update Was Saved!')
+        return HttpResponseRedirect(self.get_success_url())
+               
     def get_success_url(self):
-        return reverse('books:author_detail')
+        return reverse('books:author_detail', kwargs={'pk': self.object.pk})
 
 
 

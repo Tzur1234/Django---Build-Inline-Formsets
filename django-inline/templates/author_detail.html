@@ -3,22 +3,25 @@
 <h1>Author Detail</h1>
 <hr>
 
-<h3>Author Books detail</h3>
-<div class="d-flex-inline "><span class="pe-2">Author name: {{author.name|title}}</span></div>
-<hr>
+<ul class="list-group">
+    <li class="list-group-item">
+        <div class="d-flex-inline "><span class="pe-2"><strong>Author name: {{author.name|title}}</strong></span></div>
+    </li>
 
 
 
-{{author.books}}
-{% for book in author.books.all %}
-    <div class="small">Book ID: {{book.id}}</div>
-    <div>Title: {{book.title}}</div>
+{% for book in author.book_author.all %}
+    <li class="list-group-item">
+        <div class="small">Book ID: {{book.id}}</div>
+        <div>Title: {{book.name}}</div>
+    </li>
 {% endfor %}
+</ul>
 <hr>
 
 
     <p>
-        <a href="{% url 'books:author_book_edit' pk=author.id %}" role="button" class="btn btn-primary w-100 mb-2">Edit Author Details</a>
+        <a href="{% url 'books:author_book_edit' pk=author.id %}" role="button" class="btn btn-primary w-100 mb-2">Edit Author's Books</a>
         <a href="{% url 'books:authors' %}" role="button" class="btn btn-primary w-100 mb-2">All Collections</a>
     </p>
 
